@@ -1,11 +1,13 @@
 package jpaprueba.logic;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Materia implements Serializable {
@@ -14,7 +16,7 @@ public class Materia implements Serializable {
    private int id;
    private String nombre;
    private String tipo;
-   @ManyToOne
+   @ManyToOne(cascade = CascadeType.PERSIST)
    private Carrera carre;
    
    public Materia(){
